@@ -1,0 +1,30 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.swp
+
+# IDE
+.idea/
+.vscode/
+*.DotSettings.user
+
+# Secrets & env
+.env
+.env.*
+!.env.example
+appsettings.Development.json
+appsettings.Local.json
+
+# Data — هیچ داده‌ی واقعی وارد ریپو نمی‌شود
+*.xlsx
+*.xls
+*.csv
+!samples/**/*.xlsx
+!samples/**/*.csv
+
+# OS
+.DS_Store
+Thumbs.db
