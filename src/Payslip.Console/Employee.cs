@@ -11,5 +11,10 @@ public class Employee
         PersonnelNo = personnelNo;
     }
 
+    public void Deactivate()
+    {
+        IsActive = false;
+    }
+
 
 }
