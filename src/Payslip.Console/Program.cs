@@ -26,17 +26,29 @@
 // Console.WriteLine($"{e2.FullName}-{e2.PersonnelNo}-{e2.IsActive}");
 
 
-var c1 = new PaymentItem("حقوق ثابت" , 150_000_000m);
+var c = new PaymentItem("حقوق ثابت" , 150_000_000m);
+var f = new PaymentItem("KPI" , 100_000_000m);
+var k = new PaymentItem("سایر پرداخت‌ها" , 50_000_000m);
 
-var c2 = new PaymentItem("KPI" , 150_000_000m);
 
-var c3 = new PaymentItem("سایر پرداخت‌ها" , 150_000_000m);
+Console.WriteLine(c);
+Console.WriteLine(f);
+Console.WriteLine(k);
 
-var c4 = new PaymentItem("جمع" , 150_000_000m);
+var items = new List<PaymentItem>();
+decimal sum = 0m;
 
-Console.WriteLine(c1);
-Console.WriteLine(c2);
-Console.WriteLine(c3);
-Console.WriteLine(c4);
+items.Add(c);
+items.Add(f);
+items.Add(k);
+
+Console.WriteLine(items.Count);
+
+foreach(var b in items)
+{
+    sum += b.Amount;
+}
+Console.WriteLine(sum);
+
 
 
