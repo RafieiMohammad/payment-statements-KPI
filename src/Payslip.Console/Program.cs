@@ -1,54 +1,49 @@
-﻿// // static decimal SumAmounts(decimal []a)
-// // {
-// //     decimal sum = 0m;
-// //     for(int i = 0 ; i < a.Length ; i++)
-// //     sum += a[i];
-// //     return sum;
-// // }
-// // static decimal ToUsdt( decimal r , decimal n)
-// // {
-// //     decimal taghsim = 0m;
-// //     taghsim = r/ n;
-// //     return taghsim;
-// // }
-// // decimal[] amounts = { 100_000_000m, 150_000_000m, 50_000_000m };
-// // decimal mablagh = SumAmounts(amounts);
+﻿// static decimal SumAmounts(decimal []a)
+// {
+//     decimal sum = 0m;
+//     for(int i = 0 ; i < a.Length ; i++)
+//     sum += a[i];
+//     return sum;
+// }
+// static decimal ToUsdt( decimal r , decimal n)
+// {
+//     decimal taghsim = 0m;
+//     taghsim = r/ n;
+//     return taghsim;
+// }
+// decimal[] amounts = { 100_000_000m, 150_000_000m, 50_000_000m };
+// decimal mablagh = SumAmounts(amounts);
 
-// // decimal Teter = ToUsdt(mablagh , 1_875_000m);
-// // Console.WriteLine(Teter);
+// decimal Teter = ToUsdt(mablagh , 1_875_000m);
+// Console.WriteLine(Teter);
 
-// var e1 = new Employee("Mohammad_Rafiei", "2525");
+var e1 = new Employee("Mohammad_Rafiei", "2525");
 
-// var e2 = new Employee("ali_rezaiei", "2325");
-// e2.IsActive = false;
+var e2 = new Employee("ali_rezaiei", "2325");
+e2.Deactivate();
 
-// Console.WriteLine($"{e1.FullName}- {e1.PersonnelNo} - {e1.IsActive}");
-// Console.WriteLine($"{e2.FullName}-{e2.PersonnelNo}-{e2.IsActive}");
-
-
-var c = new PaymentItem("حقوق ثابت" , 150_000_000m);
-var f = new PaymentItem("KPI" , 100_000_000m);
-var k = new PaymentItem("سایر پرداخت‌ها" , 50_000_000m);
+Console.WriteLine($"{e1.FullName}- {e1.PersonnelNo} - {e1.IsActive}");
+Console.WriteLine($"{e2.FullName}-{e2.PersonnelNo}-{e2.IsActive}");
 
 
-Console.WriteLine(c);
-Console.WriteLine(f);
-Console.WriteLine(k);
+var fixedSalary = new PaymentItem("حقوق ثابت" , 150_000_000m);
+var kpi = new PaymentItem("KPI" , 100_000_000m);
+var other = new PaymentItem("سایر پرداخت‌ها" , 50_000_000m);
 
-var items = new List<PaymentItem>();
-decimal sum = 0m;
 
-items.Add(c);
-items.Add(f);
-items.Add(k);
+Console.WriteLine(fixedSalary);
+Console.WriteLine(kpi);
+Console.WriteLine(other);
 
-Console.WriteLine(items.Count);
+var statement = new Statement(e1);
 
-foreach(var b in items)
-{
-    sum += b.Amount;
-}
-Console.WriteLine(sum);
+statement.Items.Add(fixedSalary);
+statement.Items.Add(kpi);
+statement.Items.Add(other);
+
+Console.WriteLine(statement.Employee.FullName);
+Console.WriteLine(statement.Items.Count);
+Console.WriteLine(statement.Total());
 
 
 
